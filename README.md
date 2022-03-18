@@ -1,0 +1,1 @@
+# snyk-api-project-delete-script
