@@ -1,0 +1,8 @@
+# Snyk Code cache
+.dccache
+
+# Dependency directory
+node_modules
+
+*.js
+models/*.js

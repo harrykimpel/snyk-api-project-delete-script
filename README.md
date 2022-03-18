@@ -1,1 +1,1 @@
-# snyk-api-project-delete-script
+# Snyk API project delete script
