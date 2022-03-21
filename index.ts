@@ -4,8 +4,15 @@ import { ProjectResponse } from './models/project-response';
 
 const organizationId = process.env["SNYK_ORG_ID"]
 const apiToken = process.env["SNYK_API_TOKEN"]
-const keepProjectBranchName = "master"
-const keepProjectLastTestedWithinDays = 10;
+var keepProjectBranchName = "master"
+if (process.env["SNYK_KEEP_PROJECT_BRANCH_NAME"] != undefined &&
+    process.env["SNYK_KEEP_PROJECT_BRANCH_NAME"] != "") {
+    keepProjectBranchName = process.env["SNYK_KEEP_PROJECT_BRANCH_NAME"]
+}
+var keepProjectLastTestedWithinDays = 10;
+if (process.env["SNYK_KEEP_PROJECT_LAST_TESTED_WITHIN_DAYS"] != undefined) {
+    keepProjectLastTestedWithinDays = parseInt(process.env["SNYK_KEEP_PROJECT_LAST_TESTED_WITHIN_DAYS"])
+}
 
 const instance = axios.create({
     baseURL: 'https://snyk.io/api/v1/org/' + organizationId + '/',
